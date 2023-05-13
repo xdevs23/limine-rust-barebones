@@ -5,7 +5,7 @@ override MAKEFLAGS += -rR
 .PHONY: all
 all:
 	cargo build --target x86_64-unknown-none
-	cp target/x86_64-unknown-none/debug/limine-rust-barebones kernel.elf
+	clang -target x86_64-pc-none-elf -static -ffreestanding -nodefaultlibs -nostdlib -fPIC -O2 -T linker.ld -fuse-ld=lld target/x86_64-unknown-none/debug/liblimine_rust_barebones.a -o kernel.elf
 
 # Remove object files and the final executable.
 .PHONY: clean
