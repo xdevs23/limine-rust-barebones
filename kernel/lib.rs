@@ -3,9 +3,9 @@
 
 use core::arch::asm;
 
-use limine::LimineFramebufferRequest;
+use limine::FramebufferRequest;
 
-static FRAMEBUFFER_REQUEST: LimineFramebufferRequest = LimineFramebufferRequest::new(0);
+static FRAMEBUFFER_REQUEST: FramebufferRequest = FramebufferRequest::new(0);
 
 #[no_mangle]
 unsafe extern "C" fn _start() -> ! {
